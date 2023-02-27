@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package guijavadoga;
 
-/**
- *
- * @author vetesi.gy.adam
- */
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
 public class GuiJavaDoga {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        String fajl = "emberek.txt";
+        Path path = Paths.get(fajl);
+        List<String> sorok = Files.readAllLines(path);
+        String fejlec = sorok.get(0);
+        sorok.remove(0);
+        
+        
+        List<Adatok> adatok = new ArrayList<>();
+        for (String adat : sorok) {
+            adatok.add(new Adatok(adat, ";"));
+        }
+        
+        
     }
     
 }
